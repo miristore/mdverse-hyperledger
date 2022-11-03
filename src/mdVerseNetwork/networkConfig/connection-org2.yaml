@@ -1,0 +1,75 @@
+# Copyright IBM Corp. All Rights Reserved.
+#
+# SPDX-License-Identifier: Apache-2.0
+---
+version: 1.0
+name: My network
+description: Connection Profile used by CI tests for a blockchain network with 1 orderer, 1 peer org with 4 peers
+
+# clients
+client:
+  organization: org1
+  connection:
+    timeout:
+      peer:
+        endorser: 300
+        eventHub: 600
+        eventReg: 300
+      orderer: 300
+
+# channels
+channels:
+  mdversechannel:
+    orderers:
+      [orderer0] 
+    peers:
+      peer0.org1.example.com:
+    chaincodes: []
+
+#organizations
+organizations:
+  org1:
+    name: Org1MSP
+    mspid: Org1MSP
+    peers:
+    - peer0.org1.examplecom
+    certificateAuthorities:
+    - ca-org1
+    adminPrivateKey:
+       path: /home/miri/Hyper-Ledger/Network-Setup/ChaincodeAPi/src/mdVerseNetwork/organizations/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+    signedCert:
+      path: /home/miri/Hyper-Ledger/Network-Setup/ChaincodeAPi/src/mdVerseNetwork/organizations/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+
+#orderers
+orderers:
+  orderer0:
+    mspid: OrdererMSP
+    url: grpc://localhost:7050
+    grpcOptions:
+      ssl-target-name-override: orderer.example.com
+    tlsCACerts:
+      path: /home/miri/Hyper-Ledger/Network-Setup/ChaincodeAPi/src/mdVerseNetwork/organizations/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+      adminPath: /home/miri/Hyper-Ledger/Network-Setup/ChaincodeAPi/src/mdVerseNetwork/organizations/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp
+
+# peers
+peers:
+  peer0.org1.example.com:
+    url: grpc://localhost:7051
+    grpcOptions:
+      ssl-target-name-override: peer0.org1.example.com
+    tlsCACerts:
+      path: /home/miri/Hyper-Ledger/Network-Setup/ChaincodeAPi/src/mdVerseNetwork/organizations/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
+
+ 
+# certificateAuthorities
+certificateAuthorities:
+  ca-org1:
+    url: http://localhost:7054
+    caName: ca-org1
+    tlsCACerts:
+       path: /home/miri/Hyper-Ledger/Network-Setup/ChaincodeAPi/src/mdVerseNetwork/organizations/crypto-config/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem
+    httpOptions:
+      verify: false
+    registrar:
+      enrollId: admin
+      enrollSecret: adminpw
