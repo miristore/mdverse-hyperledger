@@ -47,8 +47,127 @@ const addCondition = async(req,res,next)=>{
     }
 }
 
+const getPatientHistory = async(req,res,next)=>{
+    try
+    {
+        const data = await patientCanvasService.getPatientHistory_Service(req.query);
+        response.statusCode = 200
+        response.result = data;
+        res.json(response);
+    }
+    catch(ex)
+    {
+        console.log(ex);
+    }
+}
+const addEncounter = async(req,res,next)=>{
+    try
+    {
+        const data = await patientCanvasService.addEncounter_Service(req.body);
+        response.statusCode = 200
+        response.result = data;
+        res.json(response);
+    }
+    catch(ex)
+    {
+        console.log(ex);
+    }
+}
+
+const addCareplan= async(req,res,next)=>{
+    try
+    {
+        const data = await patientCanvasService.addCareplan_Service(req.body);
+        response.statusCode = 200
+        response.result = data;
+        res.json(response);
+    }
+    catch(ex)
+    {
+        console.log(ex);
+    }
+}
+
+
+const addMedication= async(req,res,next)=>{
+    try
+    {
+        const data = await patientCanvasService.addMedication_Service(req.body);
+        response.statusCode = 200
+        response.result = data;
+        res.json(response);
+    }
+    catch(ex)
+    {
+        console.log(ex);
+    }
+}
+const addDevices = async(req,res,next)=>{
+    try
+    {
+        const data = await patientCanvasService.addDevices_Service(req.body);
+        response.statusCode = 200
+        response.result = data;
+        res.json(response);
+    }
+    catch(ex)
+    {
+        console.log(ex);
+    }
+}
+const addProcedures = async(req,res,next)=>{
+    try
+    {
+        const data = await patientCanvasService.addProcedures_Service(req.body);
+        response.statusCode = 200
+        response.result = data;
+        res.json(response);
+    }
+    catch(ex)
+    {
+        console.log(ex);
+    }
+}
+
+const addImmunization= async(req,res,next)=>{
+    try
+    {
+        const data = await patientCanvasService.addImmunization_Service(req.body);
+        response.statusCode = 200
+        response.result = data;
+        res.json(response);
+    }
+    catch(ex)
+    {
+        console.log(ex);
+    }
+}
+
+const addAllergies = async(req,res,next)=>{
+    try
+    {
+        const data = await patientCanvasService.addAllergies_Service(req.body);
+        response.statusCode = 200
+        response.result = data;
+        res.json(response);
+    }
+    catch(ex)
+    {
+        console.log(ex);
+    }
+}
+
+
 module.exports = {
     getPatientData : getPatientData,
     savePatientInfo : savePatientInfo,
-    addCondition : addCondition
+    addCondition : addCondition,
+    getPatientHistory : getPatientHistory,
+    addEncounter : addEncounter,
+    addCareplan : addCareplan,
+    addMedication : addMedication,
+    addDevices : addDevices,
+    addProcedures : addProcedures,
+    addImmunization : addImmunization,
+    addAllergies : addAllergies
 }

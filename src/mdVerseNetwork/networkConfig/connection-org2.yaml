@@ -36,9 +36,9 @@ organizations:
     certificateAuthorities:
     - ca-org1
     adminPrivateKey:
-       path: /home/miri/Hyper-Ledger/Network-Setup/ChaincodeAPi/src/mdVerseNetwork/organizations/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+       path: //home/miri/vijay/GitHubProjects/MdVerse/HyperLedger/mdverse-hyperledger/src/mdVerseNetwork/organizations/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
     signedCert:
-      path: /home/miri/Hyper-Ledger/Network-Setup/ChaincodeAPi/src/mdVerseNetwork/organizations/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
+      path: /home/miri/vijay/GitHubProjects/MdVerse/HyperLedger/mdverse-hyperledger/src/mdVerseNetwork/organizations/crypto-config/peerOrganizations/org1.example.com/users/Admin@org1.example.com/msp
 
 #orderers
 orderers:
@@ -48,8 +48,8 @@ orderers:
     grpcOptions:
       ssl-target-name-override: orderer.example.com
     tlsCACerts:
-      path: /home/miri/Hyper-Ledger/Network-Setup/ChaincodeAPi/src/mdVerseNetwork/organizations/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
-      adminPath: /home/miri/Hyper-Ledger/Network-Setup/ChaincodeAPi/src/mdVerseNetwork/organizations/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp
+      path: /home/miri/vijay/GitHubProjects/MdVerse/HyperLedger/mdverse-hyperledger/src/mdVerseNetwork/organizations/crypto-config/ordererOrganizations/example.com/orderers/orderer.example.com/msp/tlscacerts/tlsca.example.com-cert.pem
+      adminPath: /home/miri/vijay/GitHubProjects/MdVerse/HyperLedger/mdverse-hyperledger/src/mdVerseNetwork/organizations/crypto-config/ordererOrganizations/example.com/users/Admin@example.com/msp
 
 # peers
 peers:
@@ -58,7 +58,7 @@ peers:
     grpcOptions:
       ssl-target-name-override: peer0.org1.example.com
     tlsCACerts:
-      path: /home/miri/Hyper-Ledger/Network-Setup/ChaincodeAPi/src/mdVerseNetwork/organizations/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
+      path: /home/miri/vijay/GitHubProjects/MdVerse/HyperLedger/mdverse-hyperledger/src/mdVerseNetwork/organizations/crypto-config/peerOrganizations/org1.example.com/tlsca/tlsca.org1.example.com-cert.pem
 
  
 # certificateAuthorities
@@ -67,7 +67,7 @@ certificateAuthorities:
     url: http://localhost:7054
     caName: ca-org1
     tlsCACerts:
-       path: /home/miri/Hyper-Ledger/Network-Setup/ChaincodeAPi/src/mdVerseNetwork/organizations/crypto-config/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem
+       path: /home/miri/vijay/GitHubProjects/MdVerse/HyperLedger/mdverse-hyperledger/src/mdVerseNetwork/organizations/crypto-config/peerOrganizations/org1.example.com/ca/ca.org1.example.com-cert.pem
     httpOptions:
       verify: false
     registrar:

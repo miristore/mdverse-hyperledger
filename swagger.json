@@ -1,374 +1,620 @@
 
 {
-    "swagger": "2.0",
-    "info": {
-      "version": "1.0.0", 
-      "title": "My User Project CRUD",
-      "description": "My User Project Application API",
-      "license": {
-        "name": "MIT",
-        "url": "https://opensource.org/licenses/MIT"
-      }
-    },
-    "host": "localhost:3006",
-    "basePath": "/",
-    "tags": [
-      {
-        "name": "Users",
-        "description": "API for users in the system"
-      }
-    ],
-    "schemes": ["http"],
-    "consumes": ["application/json"],
-    "produces": ["application/json"],
-    "paths": {
-        "/api/canvas/getPatientInfo": {
-          "get": {
-            "tags": ["patient"],
-            "parameters": [
-              {
-                "name": "patientId",
-                "in": "query",
-                "description": "User that we want to create",
-                "schema": {
-                  "$ref": "#/definitions/patientInfo"
-                }
-              }
-            ],
-            "summary": "Get Patient Info",
-            "responses": {
-              "200": {
-                "description": "OK",
-                "schema": {
-                  "$ref": "#/definitions/patientInfo"
-                }
-              }
-            }
-          }
-        },
-        "/api/canvas/addPatientInfo": {
-          "post": {
-            "tags": ["patient"],
-            "parameters": [
-              {
-                "name": "patientData",
-                "in": "body",
-                "description": "patient that we want to save",
-                "schema": {
-                  "$ref": "#/definitions/addPatientInfo"
-                }
-                
-              }
-            ],
-            "summary": "Add Patient Details",
-            "responses": {
-              "200": {
-                "description": "OK",
-                "schema": {
-                  "$ref": "#/definitions/addPatientInfoResult"
-                }
-              }
-            }
-          }
-        },
-      "/api/canvas/addCondition": {
-        "post": {
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0", 
+    "title": "MDVerse",
+    "description": "",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "localhost:3006",
+  "basePath": "/",
+
+  "schemes": ["http"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+      "/api/canvas/getPatientInfo": {
+        "get": {
           "tags": ["patient"],
           "parameters": [
             {
-              "name": "patientCondition",
-              "in": "body",
-              "description": "patient condition that we want to save",
+              "name": "patientId",
+              "in": "query",
+              "description": "User that we want to create",
               "schema": {
-                "$ref": "#/definitions/addConditionInfo"
+                "$ref": "#/definitions/patientInfo"
               }
-              
             }
           ],
-          "summary": "Add Patient conditions Details",
+          "summary": "Get Patient Info",
           "responses": {
             "200": {
               "description": "OK",
               "schema": {
-                "$ref": "#/definitions/addConditionInfoResult"
+                "$ref": "#/definitions/patientInfo"
+              }
+            }
+          }
+        }
+      },
+      "/api/canvas/addPatientInfo": {
+        "post": {
+          "tags": ["patient"],
+          "parameters": [
+            {
+              "name": "patientData",
+              "in": "body",
+              "description": "patient that we want to save",
+              "schema": {
+                "$ref": "#/definitions/addPatientInfo"
+              }
+              
+            }
+          ],
+          "summary": "Add Patient Details",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/addPatientInfoResult"
+              }
+            }
+          }
+        }
+      },
+    "/api/canvas/addCondition": {
+      "post": {
+        "tags": ["patient"],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "body",
+            "description": "patient condition that we want to save",
+            "schema": {
+              "$ref": "#/definitions/addConditionInfo"
+            }
+            
+          }
+        ],
+        "summary": "Add Patient conditions Details",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/addConditionInfoResult"
+            }
+          }
+        }
+      }
+    },
+    "/api/canvas/getPatientHistory": {
+      "get": {
+        "tags": ["patient"],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "query",
+            "description": "get Transcation history",
+            "schema": {
+              
+            }
+            
+          }
+        ],
+        "summary": "Get Transcation history",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              
+            }
+          }
+        }
+      }
+    },
+    "/api/canvas/addEncounter": {
+      "post": {
+        "tags": ["patient"],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "body",
+            "description": "patient Encounterion that we want to save",
+            "schema": {
+              "$ref": "#/definitions/addEncounterInfo"
+            }
+            
+          }
+        ],
+        "summary": "Add Patient Encounter Details",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+ 
+            }
+          }
+        }
+      }
+    },
+    "/api/canvas/addCareplan": {
+      "post": {
+        "tags": ["patient"],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "body",
+            "description": "patient Encounterion that we want to save",
+            "schema": {
+              "$ref": "#/definitions/addCareplanInfo"
+            }
+            
+          }
+        ],
+        "summary": "Add Patient Encounter Details",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+             
+            }
+          }
+        }
+      }
+    },
+    "/api/canvas/addMedication": {
+      "post": {
+        "tags": ["patient"],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "body",
+            "description": "patient Encounterion that we want to save",
+            "schema": {
+              "$ref": "#/definitions/addMedicationInfo"
+            }
+            
+          }
+        ],
+        "summary": "Add Patient medications Details",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              
+            }
+          }
+        }
+      }
+    },
+    "/api/canvas/addDevices": {
+      "post": {
+        "tags": ["patient"],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "body",
+            "description": "patient Devices that we want to save",
+            "schema": {
+              "$ref": "#/definitions/addDeviceInfo"
+            }
+            
+          }
+        ],
+        "summary": "Add Patient Encounter Details",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              
+            }
+          }
+        }
+      }
+    },
+    "/api/canvas/addProcedures": {
+      "post": {
+        "tags": ["patient"],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "body",
+            "description": "patient Devices that we want to save",
+            "schema": {
+              "$ref": "#/definitions/addProcedureInfo"
+            }
+            
+          }
+        ],
+        "summary": "Add Patient Encounter Details",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              
+            }
+          }
+        }
+      }
+    },
+    "/api/canvas/addImmunization": {
+      "post": {
+        "tags": ["patient"],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "body",
+            "description": "patient Immunization that we want to save",
+            "schema": {
+              "$ref": "#/definitions/addImmunizationInfo"
+            }
+            
+          }
+        ],
+        "summary": "Add Patient Immunization Details",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              
+            }
+          }
+        }
+      }
+    },
+    "/api/canvas/addAllergies": {
+      "post": {
+        "tags": ["patient"],
+        "parameters": [
+          {
+            "name": "patientId",
+            "in": "body",
+            "description": "patient Immunization that we want to save",
+            "schema": {
+              "$ref": "#/definitions/addAllergyInfo"
+            }
+            
+          }
+        ],
+        "summary": "Add Patient Immunization Details",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              
+            }
+          }
+        }
+      }
+    }
+
+  },
+    "definitions": {
+      "patientInfo": {
+        "required": ["patientId"],
+        "properties": {
+          "patientId": {
+            "type": "string",
+            "uniqueItems": true
+          },
+          "patient_physicianInfo_hash": {
+            "type": "string"
+          },
+          "patient_profile_hash": {
+            "type": "string"
+          },
+          "procedure": {
+            "type": "object",
+            "properties" : {
+              "all_procedures_hash": {
+                "type": "string"
+              } 
+            }
+          },
+        "condition" :{
+          "type" : "object",
+          "properties" : {
+            "all_condtions_hash": {
+              "type": "string"
+            }
+          }
+        },
+    "device" :{
+      "type" : "object",
+      "properties" : {
+        "all_devices_hash": {
+          "type": "string"
+        },
+        "devices": {
+          "type" : "array",
+          "items" :{
+            "type" : "object", 
+            "properties" : {
+              "id" : {
+                "type" : "string"
+              },
+              "deviceHash" : {
+                  "type" : "string"
               }
             }
           }
         }
       }
     },
-      "definitions": {
-        "patientInfo": {
-          "required": ["patientId"],
-          "properties": {
-            "patientId": {
-              "type": "string",
-              "uniqueItems": true
-            },
-            "patient_physicianInfo_hash": {
-              "type": "string"
-            },
-            "patient_profile_hash": {
-              "type": "string"
-            },
-            "procedure": {
-              "type": "object",
-              "properties" : {
-                "all_procedures_hash": {
-                  "type": "string"
-                },
-                "procedures": {
-                  "type" : "array",
-                  "items" :{
-                    "type" : "object", 
-                    "properties" : {
-                      "id" : {
-                        "type" : "string"
-                      },
-                      "procedureHash" : {
-                        "type" : "string"
-                      }
-                    }
-                  }
-                }
-              }
-            },
-          "condition" :{
-            "type" : "object",
-            "properties" : {
-              "all_condtions_hash": {
-                "type": "string"
-              },
-              "conditions": {
-                "type" : "array",
-                "items" :{
-                  "type" : "object", 
-                  "properties" : {
-                    "id" : {
-                      "type" : "string"
-                    },
-                    "conditionHash" : {
-                        "type" : "string"
-                    }
-                  }
-                }
-              }
-            }
-          },
-      "device" :{
-        "type" : "object",
-        "properties" : {
-          "all_devices_hash": {
-            "type": "string"
-          },
-          "devices": {
-            "type" : "array",
-            "items" :{
-              "type" : "object", 
-              "properties" : {
-                "id" : {
-                  "type" : "string"
-                },
-                "deviceHash" : {
-                    "type" : "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "carePlan" :{
-        "type" : "object",
-        "properties" : {
-          "all_carePlans_hash": {
-            "type": "string"
-          },
-          "carePlanes": {
-            "type" : "array",
-            "items" :{
-              "type" : "object", 
-              "properties" : {
-                "id" : {
-                  "type" : "string"
-                },
-                "carePlaneHash" : {
-                    "type" : "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "immunization" :{
-        "type" : "object",
-        "properties" : {
-          "all_immunizations_hash": {
-            "type": "string"
-          },
-          "immunizations": {
-            "type" : "array",
-            "items" :{
-              "type" : "object", 
-              "properties" : {
-                "id" : {
-                  "type" : "string"
-                },
-                "immunizationHash" : {
-                    "type" : "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "medication" :{
-        "type" : "object",
-        "properties" : {
-          "all_medications_hash": {
-            "type": "string"
-          },
-          "medications": {
-            "type" : "array",
-            "items" :{
-              "type" : "object", 
-              "properties" : {
-                "id" : {
-                  "type" : "string"
-                },
-                "medicationHash" : {
-                    "type" : "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "notes" :{
-        "type" : "object",
-        "properties" : {
-          "all_notes_hash": {
-            "type": "string"
-          },
-          "notes": {
-            "type" : "array",
-            "items" :{
-              "type" : "object", 
-              "properties" : {
-                "id" : {
-                  "type" : "string"
-                },
-                "noteHash" : {
-                    "type" : "string"
-                }
-              }
-            }
-          }
-        }
-      },
-      "observation" :{
-        "type" : "object",
-        "properties" : {
-          "all_observation_hash": {
-            "type": "string"
-          },
-          "observations": {
-            "type" : "array",
-            "items" :{
-              "type" : "object", 
-              "properties" : {
-                "id" : {
-                  "type" : "string"
-                },
-                "observationHash" : {
-                    "type" : "string"
-                }
-              }
-            }
-          }
+    "carePlan" :{
+      "type" : "object",
+      "properties" : {
+        "all_carePlans_hash": {
+          "type": "string"
         }
       }
-    }
-  },
-  "addPatientInfo" :{
-    "type" : "object",
-    "required": ["patientId", "patientData"],
-    "properties": {
-      "patientId" : {
-        "type" : "string"
-      },
-      "patientData" : {
-        "type" : "object",
-        "properties" : {
-          "firstName" : {
-            "type" : "string"
-          },
-          "lastName" : {
-            "type" : "string"
-          },
-          "email" : {
-            "type" : "string"
-          }
+    },
+    "immunization" :{
+      "type" : "object",
+      "properties" : {
+        "all_immunizations_hash": {
+          "type": "string"
         }
       }
-    }
-  },
-  "addPatientInfoResult" : {
-    "type" : "object",
-    "properties" :{
-      "statusCode" : {
-        "type" : "string"
-      },
-      "result" : {
-        "type" : "string"
-      }
-    }
-  },
-  "addConditionInfo" : {
-    "type" : "object",
-    "properties" : {
-      "patientId" : {
-        "type" : "string"
-      },
-      "conditions" :{
-        "type" : "array",
-        "items" :{
-          "type" : "object",
-          "properties" : {
-            "id" : {
-             "type" : "string"
-            },
-            "name" : {
-              "type" : "string"
-            }
-          }
-        }
-      },
-      "conditionId" : {
-        "type" : "string"
-      },
-      "condition" : {
-        "type" : "object",
-        "properties" : {
-          "id" : {
-            "type" : "string"
-           },
-           "name" : {
-             "type" : "string"
-           }
+    },
+    "medication" :{
+      "type" : "object",
+      "properties" : {
+        "all_medications_hash": {
+          "type": "string"
         }
       }
-    }
-  },
-  "addConditionInfoResult" : {
-    "type" : "object",
-    "properties" :{
-      "statusCode" : {
-        "type" : "string"
-      },
-      "result" : {
-        "type" : "string"
+    },
+    "notes" :{
+      "type" : "object",
+      "properties" : {
+        "all_notes_hash": {
+          "type": "string"
+        }
+      }
+    },
+    "observation" :{
+      "type" : "object",
+      "properties" : {
+        "all_observation_hash": {
+          "type": "string"
+        }
       }
     }
   }
+},
+"addPatientInfo" :{
+  "type" : "object",
+  "required": ["patientId", "patientData"],
+  "properties": {
+    "patientId" : {
+      "type" : "string"
+    },
+    "patientData" : {
+      "type" : "object",
+      "properties" : {
+        "firstName" : {
+          "type" : "string"
+        },
+        "lastName" : {
+          "type" : "string"
+        },
+        "email" : {
+          "type" : "string"
+        }
+      }
+    }
+  }
+},
+"addPatientInfoResult" : {
+  "type" : "object",
+  "properties" :{
+    "statusCode" : {
+      "type" : "string"
+    },
+    "result" : {
+      "type" : "string"
+    }
+  }
+},
+"addConditionInfo" : {
+  "type" : "object",
+  "properties" : {
+    "patientId" : {
+      "type" : "string"
+    },
+    "conditions" :{
+      "type" : "array",
+      "items" :{
+        "type" : "object",
+        "properties" : {
+          "id" : {
+           "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+
+  }
+},
+"addConditionInfoResult" : {
+  "type" : "object",
+  "properties" :{
+    "statusCode" : {
+      "type" : "string"
+    },
+    "result" : {
+      "type" : "string"
+    }
+  }
+},
+"addEncounterInfo" : {
+  "type" : "object",
+  "properties" : {
+    "patientId" : {
+      "type" : "string"
+    },
+    "encounters" :{
+      "type" : "array",
+      "items" :{
+        "type" : "object",
+        "properties" : {
+          "id" : {
+           "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+
+  }
+},
+"addCareplanInfo" : {
+  "type" : "object",
+  "properties" : {
+    "patientId" : {
+      "type" : "string"
+    },
+    "careplans" :{
+      "type" : "array",
+      "items" :{
+        "type" : "object",
+        "properties" : {
+          "id" : {
+           "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+
+  }
+},
+"addMedicationInfo" : {
+  "type" : "object",
+  "properties" : {
+    "patientId" : {
+      "type" : "string"
+    },
+    "medications" :{
+      "type" : "array",
+      "items" :{
+        "type" : "object",
+        "properties" : {
+          "id" : {
+           "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+
+  }
+},
+"addDeviceInfo" : {
+  "type" : "object",
+  "properties" : {
+    "patientId" : {
+      "type" : "string"
+    },
+    "devices" :{
+      "type" : "array",
+      "items" :{
+        "type" : "object",
+        "properties" : {
+          "id" : {
+           "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+
+  }
+},
+"addProcedureInfo" : {
+  "type" : "object",
+  "properties" : {
+    "patientId" : {
+      "type" : "string"
+    },
+    "procedures" :{
+      "type" : "array",
+      "items" :{
+        "type" : "object",
+        "properties" : {
+          "id" : {
+           "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+
+  }
+},
+"addImmunizationInfo" : {
+  "type" : "object",
+  "properties" : {
+    "patientId" : {
+      "type" : "string"
+    },
+    "immunizations" :{
+      "type" : "array",
+      "items" :{
+        "type" : "object",
+        "properties" : {
+          "id" : {
+           "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+
+  }
+},
+"addAllergyInfo" : {
+  "type" : "object",
+  "properties" : {
+    "patientId" : {
+      "type" : "string"
+    },
+    "allergies" :{
+      "type" : "array",
+      "items" :{
+        "type" : "object",
+        "properties" : {
+          "id" : {
+           "type" : "string"
+          },
+          "name" : {
+            "type" : "string"
+          }
+        }
+      }
+    }
+
+  }
+}
 }
 }
